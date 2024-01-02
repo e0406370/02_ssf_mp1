@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homepage</title>
+
+    <link 
+      href="/userstyles.css" 
+      rel="stylesheet" 
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+
+    <header>
+      <h2 class="logo">
+        <a data-th-href="@{/}">
+          Recipe Manager
+        </a>
+      </h2>
+
+      <nav class="navi">
+        <a data-th-href="@{/homepage}">
+          <button class="btnHome">
+            Home
+          </button>
+        </a>
+
+        <a data-th-href="@{/register}">
+          <button class="btnRegister">
+            Sign Up
+          </button>
+        </a>
+
+        <a data-th-href="@{/login}">
+          <button class="btnLogin">
+            Login
+          </button>
+        </a>
+      </nav>
+    </header>
+
+    <div class="container">
+
+      <div class="row justify-content-center align-items-center">
+
+        <div class="col-md-8 text-center text-white">
+          <div class="info-box bg-dark text-decoration-none p-4 rounded">
+            <h1>Welcome to Recipe Manager!</h1>
+            <p>Your go-to place for discovering and managing delicious recipes!</p>
+          </div>
+        </div>
+
+      </div>
+  
+      <div class="row my-5">
+
+        <div class="col-md-6 text-center">
+          <div class="info-box bg-primary text-white p-4 rounded">
+            <ion-icon name="search-outline" class="info-icon"></ion-icon>
+            <h2>Discover New Recipes</h2>
+            <p>Explore a variety of recipes based on your preferences.</p>
+          </div>
+        </div>
+  
+        <div class="col-md-6 text-center">
+          <div class="info-box bg-success text-white p-4 rounded">
+            <ion-icon name="bookmark-outline" class="info-icon"></ion-icon>
+            <h2>Manage Your Bookmarks</h2>
+            <p>Bookmark and access your favorite recipes anytime.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row justify-content-center align-items-center">
+
+        <div class="col-md-8 text-center text-white">
+          <div class="info-box bg-dark text-decoration-none p-sm-3 rounded">
+            <p>
+              To get started, 
+              <span>
+                <u>
+                  <a class="text-decoration-none text-white" data-th-href="@{/login}">log in to your existing account</a>
+                </u>
+              </span> 
+              or
+              <span>
+                <u>
+                  <a class="text-decoration-none text-white" data-th-href="@{/register}">register if you haven't done so.</a>
+                </u>
+              </span>
+            </p>
+            <p>Start exploring and bookmarking your favorite recipes!</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <script 
+      type="module" 
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js">
+    </script>
+
+    <script 
+      nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js">
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous">
+    </script>
+
+  </body>
+
+</html>

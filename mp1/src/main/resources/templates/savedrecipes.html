@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookmarked Recipes</title>
+
+    <link 
+      href="/userstyles.css" 
+      rel="stylesheet" 
+    />
+    <link 
+      href="/recipestyles.css" 
+      rel="stylesheet" 
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+
+    <header>
+      <h2 class="logo">
+        <a data-th-href="@{/}">
+          Recipe Manager
+        </a>
+      </h2>
+
+      <div>
+        <div id="dateDayTime" class="text-center text-white"></div>
+      </div>
+
+      <nav class="navi">
+        <a data-th-href="@{/dashboard}">
+          <button class="btnOverall">
+            Dashboard
+          </button>
+        </a>
+
+        <a data-th-href="@{/searchrecipes}">
+          <button class="btnOverall">
+            Search
+          </button>
+        </a>
+    </header> 
+
+
+    <div class="container text-center">
+      <div class="card text-bg-dark mb-3">
+        <h1 class="profile-heading text-center text-warning">Saved Recipes</h1>        
+      </div>
+
+      <div class="row justify-content-center align-items-center" data-th-if="${#lists.isEmpty(recipes)}">
+        <div class="col-md-7 text-center text-white">
+
+          <div class="error-box-recipe alert alert-danger text-decoration-none p-3 rounded">
+            <h1>
+              <h2 class="alert-heading">
+                <ion-icon name="alert-circle-outline"></ion-icon>
+                Oops! It seems like you haven't saved any recipes yet.
+              </h2>
+              <p class="fs-5">
+                Get started by checking the recipe search page.
+            </h1>
+          </div>
+
+          <a class="text-decoration-none" data-th-href="@{/searchrecipes}">
+            <div class="return-box alert alert-primary text-decoration-none p-3 rounded">
+              <h1>
+                <p class="alert-heading fs-5">
+                  Back to Recipe Search
+                </p>
+              </h1>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+      <div class="row row-cols-4" data-th-unless="${#lists.isEmpty(recipes)}">
+        <div class="card text-bg-dark m-2" style="width: 23rem;" data-th-each="recipe : ${recipes}">
+
+          <img data-th-src="${recipe.imageLink}" height="350" width="450" class="card-img-top">
+
+          <div class="card-body">
+
+            <a data-th-href="@{/recipe/{recipeID}(recipeID=${recipe.recipeID})}" class="text-decoration-none">
+              <h5 class="card-title text-warning" data-th-text="${recipe.recipeName}">a</h5>
+            </a>
+
+            <h6 class="card-title text-warning">
+              <ion-icon name="information-circle"></ion-icon>
+              By
+              <a data-th-href="${recipe.sourceLink}" class="text-warning">
+                <span data-th-text="${recipe.sourceName}"></span>
+              </a>
+            </h6>
+            <hr class="my-2"/>
+
+            <div class="row row-cols-3">
+              <div class="col">
+                <div class="card-text text-light" data-th-text="${#numbers.formatDecimal(recipe.preparationTime == null || recipe.preparationTime == 0 ? 5 : recipe.preparationTime, 0, 0)}"></div>
+              </div>
+
+              <div class="col">
+                <div class="card-text text-light" data-th-text="${#arrays.length(recipe.ingredientList)}"></div>
+              </div>
+
+              <div class="col">
+                <div class="card-text text-light" data-th-text="${#numbers.formatDecimal(recipe.calories == null ? 0 : recipe.calories, 0, 0)}"></div>
+              </div>
+            </div>
+
+            <div class="row row-cols-3">
+              <div class="col p-1">
+                <div class="card-text text-light">
+                  <span>minutes</span>
+                </div>
+                <div class="card-text text-light">
+                  <span><ion-icon name="timer"></ion-icon></span>
+                </div>
+                
+              </div>
+              <div class="col p-1">
+                <div class="card-text text-light">
+                  <span>ingredients</span>
+                </div>
+                <div class="card-text text-light">
+                  <span><ion-icon name="restaurant"></ion-icon></span>
+                </div>
+              </div>
+              <div class="col p-1">
+                <div class="card-text text-light">
+                  <span>calories</span>
+                </div>
+                <div class="card-text text-light">
+                  <span><ion-icon name="flame"></ion-icon></span>
+                </div>
+              </div>
+            </div>
+            <hr class="my-2"/>
+
+            <div class="row row cols-2">
+              <div class="col">
+                <a class="btn btn-warning" data-th-href="${recipe.sourceLink}">
+                  View Recipe
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script 
+      type="module" 
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js">
+    </script>
+
+    <script 
+      nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js">
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous">
+    </script>
+
+    <script
+      src="/datescript.js">
+    </script>
+
+  </body>
+
+</html>

@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+/* 
+ * top bar (essential for all views)
+ */
+
+.navi .btnOverall {
+  color: antiquewhite;
+  font-size: 1.1em;
+  font-weight: 500;
+  width: 130px;
+  height: 50px;
+  background: transparent;
+  outline: none;
+  border: 2px solid #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 40px;
+  transition: 0.5s;
+}
+
+.navi .btnOverall:hover {
+  background: antiquewhite;
+  color: #101f2a;
+}
+
+.navi .btnLogout {
+  color: antiquewhite;
+  font-size: 1.1em;
+  font-weight: 500;
+  width: 130px;
+  height: 50px;
+  outline: none;
+  border: 2px solid #730b0b;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 40px;
+}
+
+/*
+ * error boxes
+ */
+
+.error-box {
+  position: relative;
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+.return-box {
+  position: relative;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+/*
+ * recipe search boxes
+ */
+
+.custom-select-box {
+  width: 50%;
+}
