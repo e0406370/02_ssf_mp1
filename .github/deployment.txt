@@ -1,0 +1,33 @@
+references:
+
+- https://blog.railway.app/p/github-actions
+- https://docs.railway.app/reference/integrations
+
+- https://docs.github.com/en/actions/creating-actions
+- https://docs.github.com/en/actions/learn-github-actions/variables
+- https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows
+
+- https://github.com/e0406370/02_ssf_mp1/actions
+- https://github.com/bervProject/railway-deploy
+
+- https://stackoverflow.com/questions/77992218/github-actions-failing-after-upgrading-to-node-v20
+
+==========================================================================================================
+
+railway tokens:
+- Project Settings -> Tokens -> New Token
+
+=> GITHUB_ACTIONS_DEPLOY
+
+==========================================================================================================
+
+github actions - secrets:
+- Repository Settings -> Security: Secret and Variables -> Actions -> New Repository Secret
+
+=> RAILWAY_SERVICE_NAME
+  => recipe-manager-mp1-e0406370
+
+=> RAILWAY_TOKEN
+  => (empty)
+
+==========================================================================================================
