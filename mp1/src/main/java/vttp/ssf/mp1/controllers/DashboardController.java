@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import jakarta.servlet.http.HttpSession;
+
 import vttp.ssf.mp1.models.User;
 import vttp.ssf.mp1.services.RecipeService;
 import vttp.ssf.mp1.services.UserService;

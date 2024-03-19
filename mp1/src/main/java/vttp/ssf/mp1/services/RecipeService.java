@@ -1,7 +1,6 @@
 package vttp.ssf.mp1.services;
 
 import java.io.StringReader;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -112,7 +111,7 @@ public class RecipeService {
       requestUrlBuilder.append("&dishType=").append(dishType);
     }
 
-    // ensure random permutation of <=20 recipes based on the criteria filled
+    // ensures random permutation of <=20 recipes based on the criteria filled
     requestUrlBuilder.append("&random=").append(recipeApiRandom);
 
     return requestUrlBuilder.toString();
@@ -128,7 +127,7 @@ public class RecipeService {
     if (jsonArray != null) {
       return jsonArray.stream()
           .map(JsonValue::toString)
-          .flatMap(s -> Arrays.stream(s.trim().split("/"))) // fix lunch/dinner mealtype tag
+          .map(s -> s.replaceAll("^\"|\"$", "")) // removes leading and trailing backslashes
           .collect(Collectors.toList());
     }
 
@@ -177,16 +176,17 @@ public class RecipeService {
   public String convertRecipeToJson(Recipe recipe) {
 
     return Json.createObjectBuilder()
-        .add("recipeID", recipe.getRecipeID())
-        .add("recipeName", recipe.getRecipeName())
-        .add("imageLink", recipe.getImageLink())
-        .add("sourceName", recipe.getSourceLink())
-        .add("ingredientList", Json.createArrayBuilder(recipe.getIngredientList()).build())
-        .add("preparationTime", recipe.getPreparationTime())
+        .add("recipe_id", recipe.getRecipeID())
+        .add("recipe_name", recipe.getRecipeName())
+        .add("image_link", recipe.getImageLink())
+        .add("source_name", recipe.getSourceName())
+        .add("source_link", recipe.getSourceLink())
+        .add("ingredient_list", Json.createArrayBuilder(recipe.getIngredientList()).build())
+        .add("preparation_time", recipe.getPreparationTime())
         .add("calories", recipe.getCalories())
-        .add("mealTypeList", Json.createArrayBuilder(recipe.getMealTypeList()).build())
-        .add("dishTypeList", Json.createArrayBuilder(recipe.getDishTypeList()).build())
-        .add("cuisineTypeList", Json.createArrayBuilder(recipe.getCuisineTypeList()).build())
+        .add("meal_type_list", Json.createArrayBuilder(recipe.getMealTypeList()).build())
+        .add("dish_type_list", Json.createArrayBuilder(recipe.getDishTypeList()).build())
+        .add("cuisine_type_list", Json.createArrayBuilder(recipe.getCuisineTypeList()).build())
         .add("tags", Json.createArrayBuilder(recipe.getTags()).build())
         .build()
         .toString();

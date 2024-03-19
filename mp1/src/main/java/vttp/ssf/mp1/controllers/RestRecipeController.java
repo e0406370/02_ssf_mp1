@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import jakarta.json.Json;
 import jakarta.json.JsonObject;
 import jakarta.servlet.http.HttpSession;
+
 import vttp.ssf.mp1.models.Recipe;
 import vttp.ssf.mp1.services.RecipeService;
 
@@ -39,7 +40,7 @@ public class RestRecipeController {
           .build();
 
       ResponseEntity<String> result1 = ResponseEntity
-          .status(HttpStatus.UNAUTHORIZED)
+          .status(HttpStatus.UNAUTHORIZED) // 401 UNAUTHORIZED
           .body(notFound.toString());
 
       return result1;
@@ -55,7 +56,7 @@ public class RestRecipeController {
           .build();
 
       ResponseEntity<String> result2 = ResponseEntity
-          .status(HttpStatus.NOT_FOUND)
+          .status(HttpStatus.NOT_FOUND) // 404 NOT FOUND
           .body(notFound.toString());
 
       return result2;
@@ -64,7 +65,7 @@ public class RestRecipeController {
     else {
 
       ResponseEntity<String> result3 = ResponseEntity
-          .status(HttpStatus.OK)
+          .status(HttpStatus.OK) // 200 OK
           .body(recipeSvc.convertRecipeToJson(savedRecipeOptional.get()));
 
       return result3;
