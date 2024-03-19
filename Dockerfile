@@ -6,9 +6,9 @@ ARG APP_DIR=/app
 
 WORKDIR ${APP_DIR}
 
-COPY mvnw .
-COPY mvnw.cmd .
-COPY pom.xml .
+COPY mp1/mvnw .
+COPY mp1/mvnw.cmd .
+COPY mp1/pom.xml .
 
 COPY .mvn .mvn
 COPY src src
