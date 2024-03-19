@@ -67,7 +67,7 @@ public class UserController {
     if (results.hasErrors()) {
 
       mav.setViewName("registeruser");
-      mav.setStatus(HttpStatus.BAD_REQUEST);
+      mav.setStatus(HttpStatus.BAD_REQUEST); // 400 BAD REQUEST
 
       return mav;
     }

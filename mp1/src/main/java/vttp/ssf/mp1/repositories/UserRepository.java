@@ -35,9 +35,11 @@ public class UserRepository {
 
   public boolean usernameExists(String username) {
 
-    for (String userIDKey : getAllUserIDKeys()) {
+    Set<String> userIDKeys = getAllUserIDKeys();
 
-      Map<Object, Object> entries = template.opsForHash().entries(userIDKey);
+    for (String userIDKey : userIDKeys) {
+
+      Map<Object, Object> entries = template.opsForHash().entries(userIDKey);     
       if (entries.get("username").equals(username)) {
         return true;
       }
@@ -48,9 +50,11 @@ public class UserRepository {
 
   public boolean emailExists(String email) {
 
-    for (String userIDKey : getAllUserIDKeys()) {
+    Set<String> userIDKeys = getAllUserIDKeys();
 
-      Map<Object, Object> entries = template.opsForHash().entries(userIDKey);
+    for (String userIDKey : userIDKeys) {
+
+      Map<Object, Object> entries = template.opsForHash().entries(userIDKey);      
       if (entries.get("email").equals(email)) {
         return true;
       }
@@ -61,9 +65,11 @@ public class UserRepository {
 
   public boolean isCorrectMatch(String username, String password) {
 
-    for (String userIDKey : getAllUserIDKeys()) {
+    Set<String> userIDKeys = getAllUserIDKeys();
 
-      Map<Object, Object> entries = template.opsForHash().entries(userIDKey);
+    for (String userIDKey : userIDKeys) {
+
+      Map<Object, Object> entries = template.opsForHash().entries(userIDKey);      
       if (entries.get("username").equals(username)) {
 
         // left: password in plaintext, right: password in encryptedtext
@@ -74,6 +80,11 @@ public class UserRepository {
     }
 
     return false;
+  }
+
+  public boolean hasUserIDKey(String userID) {
+
+    return template.hasKey(userID);
   }
 
   public void saveUser(User user) {
@@ -91,8 +102,9 @@ public class UserRepository {
   public User loadUser(String username) {
 
     User loggedUser = null;
+    Set<String> userIDKeys = getAllUserIDKeys();
 
-    for (String userIDKey : getAllUserIDKeys()) {
+    for (String userIDKey : userIDKeys) {
 
       Map<Object, Object> entries = template.opsForHash().entries(userIDKey);
       if (entries.get("username").equals(username)) {
@@ -105,14 +117,11 @@ public class UserRepository {
 
         loggedUser = new User(username, password, name, email, birthDate, age);
         loggedUser.setUserID(userIDKey);
+
+        break;
       }
     }
 
     return loggedUser;
-  }
-
-  public boolean hasUserIDKey(String userID) {
-
-    return template.hasKey(userID);
   }
 }

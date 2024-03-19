@@ -16,6 +16,7 @@ import jakarta.validation.constraints.Size;
 import vttp.ssf.mp1.utility.Utility;
 
 public class User {
+  
   // for login purposes
 
   @NotBlank(message = "Username is a mandatory field.")

@@ -30,6 +30,11 @@ public class UserService {
     return userRepo.isCorrectMatch(username, password);
   }
 
+  public boolean hasUserIDKey(String userID) {
+
+    return userRepo.hasUserIDKey(userID);
+  }
+
   public String generateUserID() {
 
     UUID userIDInUUID = UUID.randomUUID();
@@ -53,10 +58,5 @@ public class UserService {
     User loggedUser = userRepo.loadUser(username);
 
     return loggedUser;
-  }
-
-  public boolean hasUserIDKey(String userID) {
-
-    return userRepo.hasUserIDKey(userID);
   }
 }

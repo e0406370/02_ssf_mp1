@@ -10,6 +10,7 @@ public class PasswordHasher {
   public static String hashPassword(String plainPassword) {
 
     try {
+
       // create a MessageDigest object using the SHA-256 cryptographic hash algorithm
       MessageDigest messageDigest = MessageDigest.getInstance(algorithm);
 
@@ -24,7 +25,9 @@ public class PasswordHasher {
     }
 
     catch (NoSuchAlgorithmException e) {
+
       e.printStackTrace();
+
       return null;
     }
   }
@@ -32,6 +35,7 @@ public class PasswordHasher {
   public static boolean checkPassword(String plainPassword, String hashedPassword) {
 
     String hashedAttempt = hashPassword(plainPassword);
+    
     return hashedAttempt.equals(hashedPassword);
   }
 
