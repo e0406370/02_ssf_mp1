@@ -10,8 +10,8 @@ COPY mp1/mvnw .
 COPY mp1/mvnw.cmd .
 COPY mp1/pom.xml .
 
-COPY .mvn .mvn
-COPY src src
+COPY mp1/.mvn .mvn
+COPY mp1/src src
 
 RUN mvn package -Dmaven.test.skip=true
 
