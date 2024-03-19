@@ -21,8 +21,7 @@ public class UserConfig {
   // Created for logging purposes in this AppConfig class
   private Logger logger = Logger.getLogger(UserConfig.class.getName());
 
-  // Values of properties are injected from resources/application.properties into
-  // the configuration
+  // Values of properties are injected from resources/application.properties into the configuration
 
   // Railway: SPRING_REDIS_HOST
   @Value("${spring.redis.host}")
