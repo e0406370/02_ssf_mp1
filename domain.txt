@@ -1,0 +1,26 @@
+"Apply a domain name and configure the application to use the domain name (2 pts)"
+
+- use Cloudflare
+- follow this guide on https://docs.railway.app/guides/public-networking#custom-domains
+
+- Railway
+=> Desired Service -> Settings -> Public Networking -> Custom Domain
+=> follow instructions 
+
+- Cloudflare
+=> DNS -> Records -> Add Record 
+=> add record from Railway with info from instructions above
+
+- play the waiting game for 24 ~ 72 hrs
+
+===================================================================================
+
+Railway serves as the actual hosting platform where a web application is deployed and runs. 
+It provides the server infrastructure and tools necessary to host the application.
+
+Cloudflare acts as a proxy and sits in front of the Railway-hosted application. 
+It intercepts and manages incoming web traffic, provides various services such as 
+DNS management, SSL/TLS encryption, content caching, DDoS protection, and firewall security.
+
+In essence, Cloudflare acts as a protective barrier and optimization layer for the Railway-hosted application.
+It ensures that the web application performs well, remains secure, and is protected from various online threats.
