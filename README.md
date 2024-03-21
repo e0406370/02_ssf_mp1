@@ -31,4 +31,3 @@
 
 * Deployment: 
   - **Railway:** https://recipe-manager-mp1-e0406370-production.up.railway.app/
-  - **Custom:** https://recipe-manager-e0406370.com/
