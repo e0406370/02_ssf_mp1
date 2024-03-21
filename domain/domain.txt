@@ -1,7 +1,5 @@
-"Apply a domain name and configure the application to use the domain name (2 pts)"
-
 - use Cloudflare
-- follow this guide on https://docs.railway.app/guides/public-networking#custom-domains
+=> follow this guide on https://docs.railway.app/guides/public-networking#custom-domains
 
 - Railway
 => Desired Service -> Settings -> Public Networking -> Custom Domain
@@ -12,6 +10,8 @@
 => add record from Railway with info from instructions above
 
 - play the waiting game for 24 ~ 72 hrs
+
+- OD_02_Custom Domain
 
 ===================================================================================
 
