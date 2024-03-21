@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 
+import vttp.ssf.mp1.application_metrics.ApplicationMetrics;
 import vttp.ssf.mp1.models.User;
 import vttp.ssf.mp1.services.UserService;
 
@@ -23,6 +24,9 @@ public class UserController {
 
   @Autowired
   private UserService userSvc;
+
+  @Autowired
+  private ApplicationMetrics appMetrics;
 
   @GetMapping({ "/", "/homepage", "/index.html" })
   public ModelAndView getHomePage(HttpSession sess) {
@@ -35,12 +39,15 @@ public class UserController {
     }
 
     else {
-      
+
       User loggedUser = (User) sess.getAttribute("loggedUser");
 
       mav.addObject("loggedUser", loggedUser);
       mav.setViewName("dashboard");
     }
+    
+    // for application metrics
+    appMetrics.incrementVisits();
 
     return mav;
   }
@@ -100,6 +107,9 @@ public class UserController {
     userSvc.saveUser(user);
 
     mav.addObject("successfulRegistration", true);
+
+    // for application metrics
+    appMetrics.incrementRegistrations();
 
     mav.setViewName("loginuser");
     mav.setStatus(HttpStatus.CREATED); // 201 CREATED

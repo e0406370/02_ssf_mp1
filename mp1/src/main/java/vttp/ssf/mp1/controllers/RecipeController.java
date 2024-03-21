@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import jakarta.servlet.http.HttpSession;
 
+import vttp.ssf.mp1.application_metrics.ApplicationMetrics;
 import vttp.ssf.mp1.models.Recipe;
 import vttp.ssf.mp1.models.User;
 import vttp.ssf.mp1.services.RecipeService;
@@ -28,6 +29,9 @@ public class RecipeController {
 
   @Autowired
   private RecipeService recipeSvc;
+
+  @Autowired
+  private ApplicationMetrics appMetrics;
 
   @GetMapping("/searchrecipes")
   public ModelAndView getSearchRecipesPage() {
@@ -62,6 +66,9 @@ public class RecipeController {
 
     sess.setAttribute("recipes", recipes);
     sess.setAttribute("listedRecipes", recipes);
+    
+    // for application metrics
+    appMetrics.incrementQueries();
 
     mav.setViewName("recipelist");
     return mav;
