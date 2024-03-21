@@ -2,8 +2,8 @@ references:
 
 - https://spring.academy/guides/spring-spring-prometheus
 - https://medium.com/simform-engineering/revolutionize-monitoring-empowering-spring-boot-applications-with-prometheus-and-grafana-e99c5c7248cf
-- https://youtu.be/U9KVXWbUVbA?si=fLSGu2CBvTwnxs-S
-- https://www.answeroverflow.com/m/1131238290566168686
+- https://youtube.com/watch?v=U9KVXWbUVbA
+- https://answeroverflow.com/m/1131238290566168686
 
 - OBE_13_Prometheus
 
@@ -26,23 +26,27 @@ workflow:
 
 4. edit docker-compose.yml accordingly (localhost or railway)
 
-5. cd to directory containing docker-compose.yml
+5. edit prometheus/prometheus.yml accordingly (localhost or railway)
 
-6. docker compose up -d
+6. cd to directory containing docker-compose.yml
+
+7. docker compose up -d
   => start containers for prometheus and grafana
   => prometheus: localhost:9090
   => grafana: localhost:3000
 
-7. access /actuator/prometheus to view metrics data in a format compatible with Prometheus
+8. access /actuator/prometheus to view metrics data in a format compatible with Prometheus
 
-8. access localhost:9090 to access Prometheus
+9. access localhost:9090 to access Prometheus
 
-9. ** check localhost:9090/targets to ensure endpoints are working (State must be UP, no Error!)
+10. ** check localhost:9090/targets to ensure endpoints are working (State must be UP, no Error!)
 
-10. ** check metrics explorer to ensure all metrics are available
+11. ** check metrics explorer to ensure all expected metrics are available
 
-11. access localhost:3000 to access Grafana
+12. access localhost:3000 to access Grafana
 
-12. configure Grafana to visualise these metrics in dashboard format
+13. configure Grafana to visualise these metrics in dashboard format
 
-13. customise personalised metrics as shown in ApplicationMetrics.java
+14. refer to listed youtube video for reference purposes 
+
+15. customise personalised metrics as shown in ApplicationMetrics.java
