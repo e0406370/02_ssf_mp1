@@ -1,11 +1,5 @@
 # NUS-ISS | Visa Technology Traineeship Program | 02_SSF_Mini Project 01 (Deadline: 03 January 2024)
 
-* Name: 
-  - Khairil Amirul
-
-* Email: 
-  - khairilamirulnus@gmail.com
-
 * Project Name: 
   - Recipe Manager
 
@@ -15,7 +9,7 @@
 * Application Type: 
   - Web Application
 
-* Technologies Used: 
+* Technologies Used:
   - Java 
   - Spring Boot 
   - Thymeleaf
