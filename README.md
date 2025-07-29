@@ -1,5 +1,3 @@
-# NUS-ISS | Visa Technology Traineeship Program | 02_SSF_Mini Project 01 (Deadline: 03 January 2024)
-
 * Project Name: 
   - Recipe Manager
 
