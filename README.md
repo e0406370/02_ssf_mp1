@@ -1,3 +1,7 @@
+Note: This project will be refined and updated in the near future.
+
+---
+
 * Project Name: 
   - Recipe Manager
 
